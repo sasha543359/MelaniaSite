@@ -1,0 +1,21 @@
+/* Melania Lefter - Site Vcard Styles */
+
+::selection {
+    background-color: rgba(201, 165, 92, 0.25);
+    color: #f4f4f5;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+    background: #252530;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c9a55c;
+}
