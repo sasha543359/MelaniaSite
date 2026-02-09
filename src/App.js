@@ -11,6 +11,7 @@ import { OperationalManagement } from "./components/OperationalManagement";
 import { ServicesSection } from "./components/ServicesSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <ContactSection />
         </main>
         <Footer />
+        <SpeedInsights />
       </div>
     </BrowserRouter>
   );
