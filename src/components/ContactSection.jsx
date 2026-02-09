@@ -54,7 +54,7 @@ export const ContactSection = () => {
     {
       icon: MessageCircle,
       label: "Telegram",
-      value: "@melanialefter",
+      value: "@Melanya_Lefter",
       href: social.telegram,
       external: true,
     },

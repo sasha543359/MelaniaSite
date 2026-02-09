@@ -8,7 +8,16 @@
       "Bash(powershell:*)",
       "Bash(npx kill-port:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Melania Lefter - Project Management consultant site\n\nReact + CRACO + Tailwind CSS website with sections: Hero, Services,\nWhy Me, Results, About, Operational Management, Contact.\nCleaned up from Emergent platform, local images, mobile responsive.\n\nCo-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(gh auth status:*)",
+      "Bash(where:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH:*)",
+      "Bash(gh auth login:*)",
+      "Bash(gh repo create:*)",
+      "Bash(vercel:*)",
+      "Bash(dir:*)"
     ]
   }
 }

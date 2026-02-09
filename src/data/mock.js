@@ -182,9 +182,9 @@ export const siteData = {
     "Another Subject",
   ],
   social: {
-    email: "contact@melanialefter.ro",
-    phone: "+40 700 000 000",
-    telegram: "https://t.me/melanialefter",
-    linkedin: "https://linkedin.com/in/melanialefter",
+    email: "melania.lefter@gmail.com",
+    phone: "+373 68 997 893",
+    telegram: "https://t.me/Melanya_Lefter",
+    linkedin: "https://www.linkedin.com/in/melania-lefter-8355b7b4/",
   },
 };
