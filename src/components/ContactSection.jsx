@@ -24,15 +24,28 @@ export const ContactSection = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const submissions = JSON.parse(
-      localStorage.getItem("contactSubmissions") || "[]"
-    );
-    submissions.push({ ...formData, timestamp: new Date().toISOString() });
-    localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
-    toast.success("Mesajul a fost trimis cu succes!");
-    setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        toast.success("Mesajul a fost trimis cu succes!");
+        setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+      } else {
+        toast.error("Eroare la trimiterea mesajului. Încercați din nou.");
+      }
+    } catch {
+      toast.error("Eroare de conexiune. Încercați din nou.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses =
@@ -109,7 +122,7 @@ export const ContactSection = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     className={inputClasses}
-                    placeholder="+40 7XX XXX XXX"
+                    placeholder="+373 XX XXX XXX"
                   />
                 </div>
                 <div>
@@ -172,10 +185,11 @@ export const ContactSection = () => {
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#c9a55c] text-[#09090b] font-semibold rounded-xl hover:bg-[#ddb96e] transition-colors duration-300 hover:shadow-[0_8px_30px_rgba(201,165,92,0.2)] text-[15px]"
+                disabled={isSubmitting}
+                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#c9a55c] text-[#09090b] font-semibold rounded-xl hover:bg-[#ddb96e] transition-colors duration-300 hover:shadow-[0_8px_30px_rgba(201,165,92,0.2)] text-[15px] disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send size={17} />
-                Trimite
+                {isSubmitting ? "Se trimite..." : "Trimite"}
               </button>
             </form>
           </div>
